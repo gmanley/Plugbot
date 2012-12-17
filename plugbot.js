@@ -244,6 +244,10 @@ function djAdvanced(obj)
 	 * If auto-woot is enabled, WOOT! the song.
 	 */
 	if (autowoot) {
+		var time_remaining_str = $('#time-remaining-value').html().split(':');
+    		var song_dur = (parseInt(time_remaining_str[0]) * 60) + parseInt(time_remaining_str[1]);
+    		var wait = Math.random() * (song_dur - 5) + 5;
+    		setTimeout($("#button-vote-positive").click(), wait);
 		$("#button-vote-positive").click();
 	}
 
